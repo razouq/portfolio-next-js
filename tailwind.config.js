@@ -2,7 +2,12 @@ module.exports = {
   purge: ['./pages/**/*.js', './components/**/*.js'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'dancing-script': ['Dancing Script', "cursive"],
+        'chakra-petch': ['Chakra Petch', 'sans-serif']
+      }
+    },
   },
   variants: {
     extend: {},
