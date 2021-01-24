@@ -3,6 +3,7 @@ import About from "../components/About";
 import Layout from "../components/Layout";
 import Articles from "../components/Articles";
 import Projects from "../components/Projects";
+
 const Home = () => {
   return (
     <Layout>

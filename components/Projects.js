@@ -10,6 +10,11 @@ export default function Projects() {
         <Project title="project 3" />
         <Project title="project 4" />
       </div>
+      <div className="flex justify-center">
+        <a href="#" className="tracking-widest text-center font-bold mx-auto mt-5 mb-2 px-2 py-1 border-2 border-purple-600 rounded-md  text-purple-600 bg-white hover:-translate-y-1 hover:shadow-xl transform ease-out duration-500">
+          MORE PROJECTS..
+        </a>
+      </div>
     </section>
   )
 }

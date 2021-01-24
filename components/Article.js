@@ -1,6 +1,6 @@
 export default function Article({ title }) {
   return (
-    <div className="bg-gray-50 rounded-md overflow-hidden shadow-md">
+    <div className="bg-white0 rounded-md overflow-hidden shadow-md">
       <img src="/images/article.jpg" alt="" />
       <div className="p-2">
         <h5 className="font-semibold">{title}</h5>
