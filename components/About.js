@@ -1,7 +1,7 @@
 export default function About() {
   return (
-    <section className="flex flex-col items-center bg-purple-50 mt-5 shadow-md">
-      <div className="w-56 m-5 mt-10 bg-red-400 rounded-full overflow-hidden">
+    <section className="flex flex-col items-center bg-blue-50 mt-5 shadow-md">
+      <div className="w-56 m-5 mt-10 rounded-full overflow-hidden">
         <img src="/images/avatar.png" alt="avatar" />
       </div>
       <div className="m-5">
