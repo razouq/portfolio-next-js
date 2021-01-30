@@ -1,6 +1,6 @@
 export default function Project({ title }) {
   return (
-    <div className="flex my-2 border-2 shadow-md">
+    <div className="flex flex-col-reverse md:flex-row my-2 border-2 shadow-md">
       <div className="flex-1 p-5 bg-blue-50">
         <h5 className="text-lg font-semibold">{title}</h5>
         <p>
@@ -22,8 +22,8 @@ export default function Project({ title }) {
           </li>
         </ul>
       </div>
-      <div className="w-1/3">
-        <img className="w-full h-full" src="/images/project.png" alt=""/>
+      <div className="w-full h-52 md:w-1/3 md:h-auto">
+        <img className="h-full w-full object-cover" src="/images/project.png" alt=""/>
       </div>
     </div>
   );
