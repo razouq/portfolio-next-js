@@ -5,7 +5,7 @@ export default function Navbar() {
   const [show, setShow] = useState(false);
   console.log(show);
   return (
-    <nav className="flex justify-between px-8 sm:px-20 py-4 border-b items-center shadow-sm bg-blue-50">
+    <nav className="flex justify-between px-8 sm:px-20 py-4  items-center bg-opacity-0 text-white">
       <div className="flex justify-between flex-col-reverse md:flex-row w-2/3">
         <div className="flex-1 justify-start">
           <ul
@@ -47,17 +47,17 @@ export default function Navbar() {
           onClick={() => setShow((show) => !show)}
         >
           <div
-            className={`w-full h-2 bg-gray-700 mb-1 rounded-sm transform duration-500 ${
+            className={`w-full h-2 bg-white mb-1 rounded-sm transform duration-500 ${
               show ? "rotate-45 translate-y-2" : ""
             }`}
           ></div>
           <div
-            className={`w-full h-2 bg-gray-700 mb-1 rounded-sm transform duration-500 ${
+            className={`w-full h-2 bg-white mb-1 rounded-sm transform duration-500 ${
               show ? "-translate-x-20 bg-opacity-0" : ""
             }`}
           ></div>
           <div
-            className={`w-full h-2 bg-gray-700 mb-1 rounded-sm transform duration-500 ${
+            className={`w-full h-2 bg-white mb-1 rounded-sm transform duration-500 ${
               show ? "-rotate-45 -translate-y-2" : ""
             }`}
           ></div>
