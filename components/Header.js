@@ -1,8 +1,10 @@
 import Navbar from './Navbar';
+import About from './About';
 
 export default function Header() {
   return (
     <div
+    
       style={{
         // background: 'url("/images/hero.jpg") no-repeat, linear-gradient(135deg, #50A684 30%, #115E67 90%)',
         backgroundImage: 'linear-gradient(to right, rgba(17, 24, 39, .5), rgba(17, 24, 39, .5)), url("/images/hero.jpg")',
@@ -11,6 +13,7 @@ export default function Header() {
       }}
     >
       <Navbar />
+      <About />
     </div>
   );
 }

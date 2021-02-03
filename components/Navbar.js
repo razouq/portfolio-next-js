@@ -1,25 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "./Link";
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
-  console.log(show);
+  useEffect(() => {
+    console.log(window.innerWidth);
+  }, []);
+
   return (
     <nav className="flex justify-between px-8 sm:px-20 py-4  items-center bg-opacity-0 text-white">
       <div className="flex justify-between flex-col-reverse md:flex-row w-2/3">
         <div className="flex-1 justify-start">
           <ul
-            className={`transform duration-500 text-xl ${
-              show ? "" : "hidden"
-            } md:flex md:flex-row`}
+            className=" fixed md:static flex text-xl h-screen flex-col items-center justify-around top-0 left-0 w-full md:h-full md:flex-row"
+            style={
+              show
+                ? {
+                    clipPath: "circle(1000px at 90% -10%)",
+                    backgroundColor: "blue",
+                    transition: "clip-path 1s ease-out",
+                  }
+                : {
+                    clipPath: "circle(0px at 90% -10%)",
+                    backgroundColor: "red",
+                    transition: "clip-path 1s ease-out",
+                  }
+            }
           >
-            <li className="my-3 mr-3 hover:text-blue-400 transition ease-out duration-500">
+            <li className="md:my-3 md:mr-3 hover:text-blue-400 transition ease-out duration-500">
               <a href="#">About</a>
             </li>
-            <li className="my-3 mr-3 hover:text-blue-400 transition ease-out duration-500">
+            <li className="md:my-3 md:mr-3 hover:text-blue-400 transition ease-out duration-500">
               <a href="#">Projects</a>
             </li>
-            <li className="my-3 mr-3 hover:text-blue-400 transition ease-out duration-500">
+            <li className="md:my-3 md:mr-3 hover:text-blue-400 transition ease-out duration-500">
               <a href="#">Contact</a>
             </li>
           </ul>
@@ -34,10 +48,10 @@ export default function Navbar() {
             <i className="fab fa-github"></i>
           </li>
           <li className="my-2 ml-5 hover:text-blue-400 transition ease-out duration-500">
-            <i class="fab fa-twitter"></i>
+            <i className="fab fa-twitter"></i>
           </li>
           <li className="my-2 ml-5 hover:text-blue-400 transition ease-out duration-500">
-            <i class="fab fa-youtube"></i>
+            <i className="fab fa-youtube"></i>
           </li>
         </ul>
       </div>

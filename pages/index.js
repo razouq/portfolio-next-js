@@ -7,7 +7,6 @@ import Projects from "../components/Projects";
 const Home = () => {
   return (
     <Layout>
-      <About />
       <Projects />
       <Articles />
     </Layout>
