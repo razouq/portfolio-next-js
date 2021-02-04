@@ -7,10 +7,10 @@ export default function Footer() {
             <i className="fab fa-github"></i>
           </li>
           <li className="my-2 ml-5 hover:text-blue-600 transition ease-out duration-200">
-            <i class="fab fa-twitter"></i>
+            <i className="fab fa-twitter"></i>
           </li>
           <li className="my-2 ml-5 hover:text-blue-600 transition ease-out duration-200">
-            <i class="fab fa-youtube"></i>
+            <i className="fab fa-youtube"></i>
           </li>
         </ul>
       </div>

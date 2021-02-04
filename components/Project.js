@@ -12,12 +12,12 @@ export default function Project({ title }) {
         <ul className="flex justify-end text-lg ">
           <li className="mx-1 hover:text-blue-400 transition ease-out duration-500">
             <a href="">
-              <i class="fab fa-github"></i>
+              <i className="fab fa-github"></i>
             </a>
           </li>
           <li className="mx-1 hover:text-blue-400 transition ease-out duration-500">
             <a href="">
-              <i class="fas fa-globe-africa"></i>
+              <i className="fas fa-globe-africa"></i>
             </a>
           </li>
         </ul>

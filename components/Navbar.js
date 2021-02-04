@@ -1,20 +1,35 @@
-import { useState, useEffect } from "react";
-import Link from "./Link";
+import { useState, useRef, useEffect } from "react";
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
+  const navRef = useRef(null);
+  const [width, setWidth] = useState(null);
+
   useEffect(() => {
-    console.log(window.innerWidth);
+    window.addEventListener("resize", fun);
+    return () => {
+      window.removeEventListener("resize", fun);
+    };
   }, []);
 
+  const fun = (e) => {
+    console.log(e.currentTarget.innerWidth);
+    setWidth(e.currentTarget.innerWidth);
+  };
+
   return (
-    <nav className="flex justify-between px-8 sm:px-20 py-4  items-center bg-opacity-0 text-white">
+    <nav
+      className="flex justify-between px-8 sm:px-20 py-4  items-center bg-opacity-0 text-white"
+      ref={navRef}
+    >
       <div className="flex justify-between flex-col-reverse md:flex-row w-2/3">
         <div className="flex-1 justify-start">
           <ul
             className=" fixed md:static flex text-xl h-screen flex-col items-center justify-around top-0 left-0 w-full md:h-full md:flex-row"
             style={
-              show
+              width > 768
+                ? {}
+                : show
                 ? {
                     clipPath: "circle(1000px at 90% -10%)",
                     backgroundColor: "blue",
@@ -22,7 +37,7 @@ export default function Navbar() {
                   }
                 : {
                     clipPath: "circle(0px at 90% -10%)",
-                    backgroundColor: "red",
+                    backgroundColor: "blue",
                     transition: "clip-path 1s ease-out",
                   }
             }
