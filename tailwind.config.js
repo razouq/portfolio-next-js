@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'dancing-script': ['Dancing Script', "cursive"],
-        'chakra-petch': ['Chakra Petch', 'sans-serif']
+        'lato': ['Lato', 'sans-serif'],
+        'monserrat': ['Montserrat', 'sans-serif'],
       }
     },
   },
