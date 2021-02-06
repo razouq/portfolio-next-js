@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import IconsList from "../elements/IconsList";
+import Icon from "../elements/Icon";
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
@@ -23,7 +25,7 @@ export default function Navbar() {
       className="flex items-center justify-between px-8 py-4 text-white bg-opacity-0 sm:px-20"
       ref={navRef}
     >
-      <div className="flex flex-col-reverse justify-between w-2/3 md:flex-row">
+      <div className="z-10 flex flex-col-reverse justify-between w-2/3 md:flex-row">
         <div className="justify-start flex-1">
           <ul
             className="fixed top-0 left-0 flex flex-col items-center justify-around w-full h-screen text-xl md:static md:justify-start md:h-full md:flex-row"
@@ -45,19 +47,13 @@ export default function Navbar() {
         </div>
       </div>
       <div className="flex-1 hidden w-1/3 md:block">
-        <ul className="flex justify-end text-2xl">
-          <li className="my-2 ml-4 transition duration-500 ease-out hover:text-yellow-400">
-            <i className="fab fa-github"></i>
-          </li>
-          <li className="my-2 ml-5 transition duration-500 ease-out hover:text-yellow-400">
-            <i className="fab fa-twitter"></i>
-          </li>
-          <li className="my-2 ml-5 transition duration-500 ease-out hover:text-yellow-400">
-            <i className="fab fa-youtube"></i>
-          </li>
-        </ul>
+        <IconsList>
+          <Icon title="fa-github" />
+          <Icon title="fa-twitter" />
+          <Icon title="fa-youtube" />
+        </IconsList>
       </div>
-      <div className="flex self-start justify-end flex-1 w-6 h-4 mt-5 md:hidden">
+      <div className="z-20 flex self-start justify-end flex-1 w-6 h-4 mt-5 md:hidden">
         <button
           className="flex flex-col justify-between w-6 h-6 outline-none focus:outline-none"
           onClick={() => setShow((show) => !show)}

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import ButtonRead from '../elements/ButtonRead';
 
 export default function Article({ title, delay }) {
   const [show, setShow] = useState(false);
@@ -48,14 +49,7 @@ export default function Article({ title, delay }) {
           <li>styled components</li>
           <li>JWT</li>
         </ul>
-        <div>
-          <a
-            href="#"
-            className="float-right px-2 py-1 mb-2 font-semibold text-yellow-900 duration-500 ease-out transform bg-white border-2 border-yellow-900 rounded-md hover:-translate-y-1 hover:shadow-xl"
-          >
-            READ
-          </a>
-        </div>
+        <ButtonRead />
       </div>
     </div>
   );

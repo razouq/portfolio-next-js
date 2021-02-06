@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 export default function About() {
   return (
     <div className="flex flex-col items-center justify-end flex-1">
