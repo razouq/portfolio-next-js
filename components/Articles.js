@@ -3,17 +3,17 @@ import Article from "./Article";
 export default function Articles() {
   return (
     <section className="mt-10">
-      <h3 className="font-semibold text-3xl text-yellow-900 border-b-4 border-yellow-900 inline-block pb-1">
+      <h3 className="inline-block pb-1 text-3xl font-semibold text-yellow-900 border-b-4 border-yellow-900">
         Articles
       </h3>
-      <div className="grid gap-4 md:grid-cols-3 mt-10">
-        <Article title="Article 1" />
-        <Article title="Article 2" />
-        <Article title="Article 3" />
-        <Article title="Article 4" />
+      <div className="grid gap-4 mt-10 md:grid-cols-3">
+        <Article title="Article 1" delay={0} />
+        <Article title="Article 2" delay={1} />
+        <Article title="Article 3" delay={2} />
+        <Article title="Article 4" delay={3} />
       </div>
       <div className="flex justify-center">
-        <a href="#" className="tracking-widest text-center font-bold mx-auto mt-5 mb-2 px-2 py-1 border-2 border-yellow-900 rounded-md  text-yellow-900 bg-white hover:-translate-y-1 hover:shadow-xl transform ease-out duration-500">
+        <a href="#" className="px-2 py-1 mx-auto mt-5 mb-2 font-bold tracking-widest text-center text-yellow-900 duration-500 ease-out transform bg-white border-2 border-yellow-900 rounded-md hover:-translate-y-1 hover:shadow-xl">
           MORE ARTICLES..
         </a>
       </div>

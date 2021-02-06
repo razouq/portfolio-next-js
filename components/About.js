@@ -1,10 +1,20 @@
+import { motion } from "framer-motion";
+
 export default function About() {
   return (
-    <div className="flex-1 flex justify-center items-center">
-      <p className="text-center text-gray-200 text-base sm:text-3xl leading-10 tracking-widest">
+    <div className="flex flex-col items-center justify-end flex-1">
+      <p className="mb-20 text-base leading-10 tracking-widest text-center text-gray-200 sm:text-3xl">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
         repudiandae consectetur.
       </p>
+      <div className="mb-20">
+        {/* <motion.div
+          transition={{ repeat: Infinity, duration: 0.5 }}
+          className="w-44"
+        >
+          <img src="/images/cf.png" alt="" />
+        </motion.div> */}
+      </div>
     </div>
   );
 }

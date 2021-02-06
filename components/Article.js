@@ -1,6 +1,44 @@
-export default function Article({ title }) {
+import { useEffect, useRef, useState } from "react";
+
+export default function Article({ title, delay }) {
+  const [show, setShow] = useState(false);
+  const ref = useRef();
+
+  const hiddenStyle = {
+    transform: "translateY(200px)",
+    transition: "all 1s ease-out",
+    opacity: "0",
+    transitionDelay: `${0.5 * delay}s`,
+  };
+
+  const visibleStyle = {
+    transform: "translateY(0px)",
+    transition: "all 1s ease-out",
+    opacity: "1",
+    transitionDelay: `${0.5 * delay}s`,
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  // window.pageYOffset + window.innerHeight > ref.current.offsetTop => show it !
+  const handleScroll = () => {
+    if (
+      window.pageYOffset + window.innerHeight >= ref.current.offsetTop &&
+      !show
+    ) {
+      setShow(true);
+    }
+  };
+
   return (
-    <div className="bg-white0 rounded-md overflow-hidden shadow-md border-yellow-200 border-2">
+    <div
+      ref={ref}
+      className="overflow-hidden bg-white border-2 border-yellow-200 rounded-md shadow-md"
+      style={show ? visibleStyle : hiddenStyle}
+    >
       <img src="/images/article.jpg" alt="" />
       <div className="p-2">
         <h5 className="font-semibold">{title}</h5>
@@ -11,7 +49,12 @@ export default function Article({ title }) {
           <li>JWT</li>
         </ul>
         <div>
-          <a href="#" className="float-right mb-2 px-2 py-1 border-2 border-yellow-900 rounded-md  text-yellow-900 bg-white hover:-translate-y-1 hover:shadow-xl transform ease-out duration-500 font-semibold">READ</a>
+          <a
+            href="#"
+            className="float-right px-2 py-1 mb-2 font-semibold text-yellow-900 duration-500 ease-out transform bg-white border-2 border-yellow-900 rounded-md hover:-translate-y-1 hover:shadow-xl"
+          >
+            READ
+          </a>
         </div>
       </div>
     </div>

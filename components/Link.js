@@ -1,7 +1,7 @@
 export default function Link({ title }) {
   return (
     <a
-      className="my-1 text-sm text-gray-700 dark:text-gray-200 font-medium hover:text-yellow-900 dark:hover:text-indigo-400 md:mx-4 md:my-0"
+      className="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-yellow-900 dark:hover:text-indigo-400 md:mx-4 md:my-0"
       href="#"
     >
       {title}
