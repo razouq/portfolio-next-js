@@ -1,27 +1,42 @@
-import {useEffect} from 'react'
-import { motion, useAnimation } from "framer-motion";
+import {useEffect, useRef, useState} from 'react'
 import { useInView } from "react-intersection-observer";
 
 export default function Project({ title, animationDirection }) {
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
-  const BoxVariants = {
-    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-    hidden: { opacity: 0, x: 300 * (animationDirection=='left'?1:-1) },
+  const [show, setShow] = useState(false);
+  const ref = useRef();
+
+  const hiddenStyle = {
+    transform: `translateX(${200*(animationDirection=="left"?-1:1)}px)`,
+    transition: "all 1s ease-out",
+    opacity: "0",
+  };
+
+  const visibleStyle = {
+    transform: "translateY(0px)",
+    transition: "all 1s ease-out",
+    opacity: "1",
   };
 
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  // window.pageYOffset + window.innerHeight > ref.current.offsetTop => show it !
+  const handleScroll = () => {
+    if (
+      window.pageYOffset + window.innerHeight >= ref.current.offsetTop &&
+      !show
+    ) {
+      setShow(true);
     }
-  }, [controls, inView]);
+  };
+
   return (
-    <motion.div
+    <div
       ref={ref}
-      animate={controls}
-      initial="hidden"
-      variants={BoxVariants}
       className="flex flex-col-reverse my-2 border-2 border-yellow-100 rounded-md shadow-md md:flex-row"
+      style={show?visibleStyle:hiddenStyle}
     >
       <div className="flex-1 p-5 bg-yellow-50">
         <h5 className="text-lg font-semibold">{title}</h5>
@@ -51,6 +66,6 @@ export default function Project({ title, animationDirection }) {
           alt=""
         />
       </div>
-    </motion.div>
+    </div>
   );
 }
