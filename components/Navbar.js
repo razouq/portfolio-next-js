@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import IconsList from "../elements/IconsList";
 import Icon from "../elements/Icon";
+import ButtonMenu from "../elements/ButtonMenu";
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
@@ -9,14 +10,13 @@ export default function Navbar() {
 
   useEffect(() => {
     setWidth(window.innerWidth);
-    window.addEventListener("resize", fun);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", fun);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  const fun = (e) => {
-    console.log(e.currentTarget.innerWidth);
+  const handleResize = (e) => {
     setWidth(e.currentTarget.innerWidth);
   };
 
@@ -54,26 +54,7 @@ export default function Navbar() {
         </IconsList>
       </div>
       <div className="z-20 flex self-start justify-end flex-1 w-6 h-4 mt-5 md:hidden">
-        <button
-          className="flex flex-col justify-between w-6 h-6 outline-none focus:outline-none"
-          onClick={() => setShow((show) => !show)}
-        >
-          <div
-            className={`w-full h-2 bg-white mb-1 rounded-sm transform duration-500 ${
-              show ? "rotate-45 translate-y-2" : ""
-            }`}
-          ></div>
-          <div
-            className={`w-full h-2 bg-white mb-1 rounded-sm transform duration-500 ${
-              show ? "-translate-x-20 bg-opacity-0" : ""
-            }`}
-          ></div>
-          <div
-            className={`w-full h-2 bg-white mb-1 rounded-sm transform duration-500 ${
-              show ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          ></div>
-        </button>
+        <ButtonMenu setShow={setShow} show={show} />
       </div>
     </nav>
   );
@@ -86,7 +67,7 @@ const smallCircleStyle = {
 };
 
 const bigCircleStyle = {
-  clipPath: "circle(1000px at 90% -10%)",
+  clipPath: "circle(2000px at 90% -10%)",
   backgroundColor: "#1F2937",
   transition: "clip-path 1s ease-out",
 };

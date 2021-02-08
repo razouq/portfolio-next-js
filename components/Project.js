@@ -1,6 +1,4 @@
 import {useEffect, useRef, useState} from 'react'
-import { useInView } from "react-intersection-observer";
-
 export default function Project({ title, animationDirection }) {
   const [show, setShow] = useState(false);
   const ref = useRef();
